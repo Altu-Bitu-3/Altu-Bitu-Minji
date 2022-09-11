@@ -37,7 +37,7 @@ int main() {
 
     // 입력
     cin >> t;
-    for (int i = 0; i < t; i++) {
+    while(t--) {
         cin >> n;
         employee.assign(n, {0, 0});
         for (int j = 0; j < n; j++) {
