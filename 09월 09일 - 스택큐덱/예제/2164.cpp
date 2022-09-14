@@ -8,7 +8,7 @@ using namespace std;
 
 int main() {
     int n;
-    queue<int> q
+    queue<int> q;
 
     // 입력
     cin >> n;
