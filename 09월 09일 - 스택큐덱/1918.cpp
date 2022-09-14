@@ -50,8 +50,6 @@ string toPostfix(string &input) {
         }
     }
 
-    cout << result;
-
     while (!st.empty()) {
         result += st.top();
         st.pop();
