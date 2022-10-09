@@ -7,21 +7,21 @@
 #include <vector>
 using namespace std;
 
-int checkPresentAvailable(priority_queue<int, vector<int>, cmp> &present,
+int checkPresentAvailable(priority_queue<int> &present,
                         vector<int> &child){
     for (int i=0; i<child.size(); i++) {
         // 각자의 max를 비교
-        // 1) 선물 가져갈 수 있는 경우
         int item = present.top();
-        if (item >= child[i]){
-            // 해당 노드의 값 변경
-            present.pop();
-            present.push(item - child[i]);
-        }
         // 2) 선물 가져갈 수 없는 경우
-        else {
+        if (item < child[i]){
             return 0;
         }
+
+        // 1) 선물 가져갈 수 있는 경우
+        // 각자의 max를 비교
+        // 해당 노드의 값 변경
+        present.pop();
+        present.push(item - child[i]);
     }
     return 1;
 }
@@ -31,7 +31,7 @@ int main() {
 
     // 입력
    cin >> n >> m;
-   priority_queue<int, vector<int>, cmp> present;
+   priority_queue<int> present;
    vector<int> child(m, 0);
 
    for (int i=0; i<n; i++){
